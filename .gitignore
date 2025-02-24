@@ -1,0 +1,33 @@
+# Ignore Gradle build directory
+/build/
+/out/
+
+# Ignore IntelliJ IDEA-specific files
+/.idea/
+/*.iml
+/*.ipr
+/*.iws
+
+# Ignore Gradle wrapper files (optional, if using wrapper)
+.gradle/
+gradle-app.setting
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.swp
+*.swo
+*~
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore dependency caches (optional, if dependencies should always be downloaded)
+.gradle/
+**/build/
+
+# Ignore Gradle directories
+.gradle/
+build/
