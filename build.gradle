@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id "org.sonarqube" version "6.0.1.5171"
 }
 
 group 'org.example'
@@ -50,5 +51,12 @@ tasks.named('jacocoTestCoverageVerification') {
                 minimum = 0.80
             }
         }
+    }
+}
+sonar {
+    properties {
+        property "sonar.projectKey", "ghostondancefloor_vpub"
+        property "sonar.organization", "ikram-iddouch"
+        property "sonar.host.url", "https://sonarcloud.io"
     }
 }
