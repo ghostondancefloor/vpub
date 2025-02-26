@@ -1,5 +1,7 @@
 package org.example;
 
+import static java.lang.System.*;
+
 /**
  * Virtual PUB
  */
@@ -7,8 +9,8 @@ package org.example;
 public class Pub {
 
 	
-	public Bar bar;
-	public Cave cave;
+	private final Bar bar;
+	private final Cave cave;
 	
 	/**
 	 * 
@@ -24,7 +26,7 @@ public class Pub {
 	
 	
 	/**
-	 * @param args
+	 * @param args main
 	 */
 	public static void main(String[] args) {
 		/* Creation du pub */
@@ -32,8 +34,8 @@ public class Pub {
 
 		Boisson coca = new Boisson("Coca");
 		Boisson eau = new Boisson("Eau");
-		Boisson sky = new Boisson("Whisky", new Float(40));
-		Boisson bierre = new Boisson("Bierre", new Float(8));
+		Boisson sky = new Boisson("Whisky", 40.0f);
+		Boisson bierre = new Boisson("Bierre", 8.0f);
 		
 		pub.cave.add(coca);
 		pub.cave.add(coca);
@@ -44,8 +46,8 @@ public class Pub {
 		pub.cave.add(bierre);
 		pub.cave.add(eau);
 		
-		System.out.println("Cave initiale :");
-		System.out.println(pub.cave);
+		out.println("Cave initiale :");
+		out.println(pub.cave);
 
 		pub.approvisionnerBar("bierre");
 		pub.approvisionnerBar("Whisky");
@@ -53,18 +55,18 @@ public class Pub {
 		pub.approvisionnerBar("eau");
 		
 		Cocktail maz = new Cocktail("Mazout");
-		maz.add("bierre", new Double(50));
-		maz.add("coca", new Double(50));
+		maz.add("bierre",50.0);
+		maz.add("coca", 50.0);
 		pub.bar.add(maz);
 		
 		Boisson cafe = new Boisson("cafe");
-		pub.bar.boissonChaude.add(cafe);
+		pub.bar.getBoissonChaude().add(cafe);
 		
-		System.out.println(pub.cave);
-		System.out.println(pub.bar);
+		out.println(pub.cave);
+		out.println(pub.bar);
 		
-		System.out.println("Boisson servie : " + pub.bar.serv("cafe"));
-		System.out.println(pub.bar);
+		out.println("Boisson servie : " + pub.bar.serv("cafe"));
+		out.println(pub.bar);
 	}
 
 }

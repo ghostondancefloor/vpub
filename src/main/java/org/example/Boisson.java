@@ -7,30 +7,51 @@ package org.example;
  */
 
 public class Boisson {
-	public String nom;
-	public Boolean alcoolise;
-	public Float degre;
-	public Float volume; // volume de la bouteille, cennette, fut ...
-	public Float prix;
+	private final String nom;
+	private final Boolean alcoolise;
+	private final Float degre;
+	private final Float volume; // volume de la bouteille, cennette, fut ...
+	private final Float prix;
 	
 	/**
-	 * @param nom
+	 * @param nom name of the drink
 	 */
 	public Boisson(String nom){
 		this.nom = nom;
-		this.alcoolise = new Boolean(false);
+		this.alcoolise = false;
 	}
 	
 	/**
-	 * @param nom
-	 * @param degre
+	 * @param nom name of the drink
+	 * @param degre degre of the drink
 	 */
 	public Boisson(String nom, Float degre){
 		this.nom = nom;
 		this.degre = degre;
-		this.alcoolise = new Boolean(true);
+		this.alcoolise = true;
 	}
-	
+
+	public String getNom() {
+		return nom;
+	}
+
+	public Boolean isAlcoolise() {
+		return alcoolise;
+	}
+
+	public Float getDegre() {
+		return degre;
+	}
+
+	public Float getVolume() {
+		return volume;
+	}
+
+	public Float getPrix() {
+		return prix;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

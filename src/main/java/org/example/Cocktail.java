@@ -1,67 +1,77 @@
 package org.example;
 
-import java.util.Vector; 
-import java.util.Enumeration;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author Pierre Le Fameux
- *
  */
 public class Cocktail {
-	
-	private class Ingrediant{
-		public String ingrediant;
-		public Double quantite;
-		
-		public Ingrediant(String ingrediant, Double quantite){
-			this.ingrediant = ingrediant;
-			this.quantite = quantite;
+
+	// Inner static class for ingredients
+	private static class Ingredient {
+		private final String name;
+		private final Double quantity;
+
+		public Ingredient(String name, Double quantity) {
+			this.name = name;
+			this.quantity = quantity;
 		}
-	}
-	
-	public String nom;
-	public Vector<Ingrediant> ingrediants;
-	public Boolean alcoolise;
-	
-	/**
-	 * Creates a Cocktail with its name
-	 * @param nom
-	 */
-	public Cocktail(String nom){
-		this.nom = nom;
-		this.ingrediants = new Vector<Ingrediant>();
-		this.alcoolise = false;
-	}
-	
-	/**
-	 * add a new element into the Cocktail.
-	 * @param ingrediant
-	 * @param quantite
-	 */
-	public void add(String ingrediant, Double quantite){
-		this.ingrediants.add(new Ingrediant(ingrediant, quantite));
-	}
-	
-	/**
-	 * alcoolFree test if the Cocktail is free alcool.
-	 * @return true if the Cocktail is free alcool
-	 */
-	public Boolean alcoolFree(){
-		return this.alcoolise;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString(){
-		String retour = new String();
-		Enumeration e = this.ingrediants.elements ();
-		Ingrediant current;
-		while (e.hasMoreElements ()) {
-			current = (Ingrediant)e.nextElement();
-			retour = retour + current.ingrediant + " " + current.quantite + "%" + "\t";
+
+		@Override
+		public String toString() {
+			return name + " " + quantity + "%";
 		}
-		return retour;
 	}
 
+	private final String nom;
+	private final List<Ingredient> ingredients;
+	private final Boolean alcoolise;
+
+	/**
+	 * Creates a Cocktail with its name
+	 * @param nom name of the cocktail
+	 */
+	public Cocktail(String nom) {
+		this.nom = nom;
+		this.ingredients = new ArrayList<>();
+		this.alcoolise = false;
+	}
+
+	public String getNom(){
+		return this.nom;
+	}
+	public Boolean getAlcoolise(){
+		return this.alcoolise;
+	}
+
+	/**
+	 * Adds a new ingredient into the Cocktail.
+	 * @param ingredient Name of the ingredient.
+	 * @param quantity Quantity of the ingredient.
+	 */
+	public void add(String ingredient, Double quantity) {
+		this.ingredients.add(new Ingredient(ingredient, quantity));
+	}
+
+	/**
+	 * Tests if the Cocktail is alcohol-free.
+	 * @return true if the Cocktail is free of alcohol.
+	 */
+	public Boolean alcoolFree() {
+		return !this.alcoolise;
+	}
+
+	/**
+	 * Returns a string representation of the cocktail ingredients.
+	 * @return Formatted ingredient list.
+	 */
+	@Override
+	public String toString() {
+		StringBuilder retour = new StringBuilder();
+		for (Ingredient ingredient : this.ingredients) {
+			retour.append(ingredient.toString()).append("\t");
+		}
+		return retour.toString();
+	}
 }
