@@ -29,7 +29,7 @@ public class Bar {
 	 * @param boisson The drink to add.
 	 */
 	public void add(Boisson boisson) {
-		if (boisson.isAlcoolise()) {
+		if (Boolean.TRUE.equals(boisson.isAlcoolise())) {
 			this.boissonAlcoolisee.add(boisson);
 		} else {
 			this.boissonFroide.add(boisson);
@@ -42,7 +42,7 @@ public class Bar {
 	 * @param cocktail The cocktail to add.
 	 */
 	public void add(Cocktail cocktail) {
-		if (cocktail.alcoolFree()) {
+		if (Boolean.TRUE.equals(cocktail.alcoolFree())) {
 			this.cocktailSansAlcoole.add(cocktail);
 		} else {
 			this.cocktailAvecAlcoole.add(cocktail);

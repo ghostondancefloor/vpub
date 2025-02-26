@@ -48,7 +48,7 @@ public class Boisson {
 	 */
 	public String toString(){
 		String retour = this.nom;
-		if(this.alcoolise){
+		if(Boolean.TRUE.equals(this.alcoolise)){
 			return retour + " (l'abus d'alcool est dangereux pour la sante)";
 		}else{
 			return retour;
