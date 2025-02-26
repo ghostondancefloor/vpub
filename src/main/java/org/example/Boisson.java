@@ -10,8 +10,6 @@ public class Boisson {
 	private final String nom;
 	private final Boolean alcoolise;
 	private final Float degre;
-	private final Float volume; // volume de la bouteille, cennette, fut ...
-	private final Float prix;
 	
 	/**
 	 * @param nom name of the drink
@@ -19,6 +17,7 @@ public class Boisson {
 	public Boisson(String nom){
 		this.nom = nom;
 		this.alcoolise = false;
+		this.degre = 0.0f;
 	}
 	
 	/**
@@ -41,14 +40,6 @@ public class Boisson {
 
 	public Float getDegre() {
 		return degre;
-	}
-
-	public Float getVolume() {
-		return volume;
-	}
-
-	public Float getPrix() {
-		return prix;
 	}
 
 
