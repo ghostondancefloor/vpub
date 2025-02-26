@@ -1,39 +1,35 @@
 package org.example;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoissonTest {
 
     @Test
-    void testConstructeurSansAlcool(){
-        Boisson b = new Boisson("atay");
-        assertEquals("atay",b.nom);
-        assertFalse(b.alcoolise);
-        assertNull(b.degre);
+    void testBoissonSansAlcool() {
+        Boisson boisson = new Boisson("Coca");
+        assertEquals("Coca", boisson.getNom());
+        assertFalse(boisson.isAlcoolise());
+        assertEquals(0.0f, boisson.getDegre());
     }
 
     @Test
-    void testConstructeurAlcool(){
-        Boisson b = new Boisson("atay7ram",7.5f);
-        assertEquals("atay7ram",b.nom);
-        assertEquals(7.5f,b.degre);
-        assertTrue(b.alcoolise);
+    void testBoissonAvecAlcool() {
+        Boisson boisson = new Boisson("Whisky", 40.0f);
+        assertEquals("Whisky", boisson.getNom());
+        assertTrue(boisson.isAlcoolise());
+        assertEquals(40.0f, boisson.getDegre());
     }
-
 
     @Test
     void testToStringSansAlcool() {
-        Boisson b = new Boisson("atay");
-        assertEquals("atay", b.toString());
+        Boisson boisson = new Boisson("Coca");
+        assertEquals("Coca", boisson.toString());
     }
-
 
     @Test
     void testToStringAvecAlcool() {
-        Boisson b = new Boisson("Vin", 10.4f);
-        assertEquals("Vin (l'abus d'alcool est dangereux pour la sante)", b.toString());
+        Boisson boisson = new Boisson("Whisky", 40.0f);
+        assertEquals("Whisky (l'abus d'alcool est dangereux pour la sante)", boisson.toString());
     }
 }
