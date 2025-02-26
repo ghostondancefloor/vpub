@@ -32,17 +32,14 @@ public class Cocktail {
 	 * Creates a Cocktail with its name
 	 * @param nom name of the cocktail
 	 */
-	public Cocktail(String nom) {
+	public Cocktail(String nom, Boolean alcoolise) {
 		this.nom = nom;
 		this.ingredients = new ArrayList<>();
-		this.alcoolise = false;
+		this.alcoolise = alcoolise;
 	}
 
 	public String getNom(){
 		return this.nom;
-	}
-	public Boolean getAlcoolise(){
-		return this.alcoolise;
 	}
 
 	/**

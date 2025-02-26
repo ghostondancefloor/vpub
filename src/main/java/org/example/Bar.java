@@ -1,14 +1,12 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * @author Pierre Le Fameux
  */
 public class Bar {
-	private final List<Boisson> boissonChaude;
 	private final List<Boisson> boissonFroide;
 	private final List<Boisson> boissonAlcoolisee;
 	private final List<Cocktail> cocktailSansAlcoole;
@@ -18,7 +16,6 @@ public class Bar {
 	 * Constructor initializes all beverage lists.
 	 */
 	public Bar() {
-		this.boissonChaude = new ArrayList<>();
 		this.boissonFroide = new ArrayList<>();
 		this.boissonAlcoolisee = new ArrayList<>();
 		this.cocktailAvecAlcoole = new ArrayList<>();
@@ -73,13 +70,6 @@ public class Bar {
 			}
 		}
 
-		for (Boisson boisson : this.boissonChaude) {
-			if (boisson.getNom().equalsIgnoreCase(command)) {
-				this.boissonChaude.remove(boisson);
-				return boisson;
-			}
-		}
-
 		for (Cocktail cocktail : this.cocktailSansAlcoole) {
 			if (cocktail.getNom().equalsIgnoreCase(command)) {
 				this.cocktailSansAlcoole.remove(cocktail);
@@ -127,17 +117,10 @@ public class Bar {
 			retour.append("\t\t").append(cocktail.toString()).append(eol);
 		}
 
-		retour.append("\t Boissons chaudes").append(eol);
-		for (Boisson boisson : this.boissonChaude) {
-			retour.append("\t\t").append(boisson.toString()).append(eol);
-		}
 
 		return retour.toString();
 	}
 
-	public List<Boisson> getBoissonChaude() {
-		return this.boissonChaude;
-	}
 
 	public List<Boisson> getBoissonFroide() {
 		return this.boissonFroide;

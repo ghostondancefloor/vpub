@@ -54,13 +54,11 @@ public class Pub {
 		pub.approvisionnerBar("Coca");
 		pub.approvisionnerBar("eau");
 		
-		Cocktail maz = new Cocktail("Mazout");
+		Cocktail maz = new Cocktail("Mazout", true);
 		maz.add("bierre",50.0);
 		maz.add("coca", 50.0);
 		pub.bar.add(maz);
-		
-		Boisson cafe = new Boisson("cafe");
-		pub.bar.getBoissonChaude().add(cafe);
+
 		
 		out.println(pub.cave);
 		out.println(pub.bar);

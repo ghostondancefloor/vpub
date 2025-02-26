@@ -7,14 +7,14 @@ class CocktailTest {
 
     @Test
     void testCocktailSansAlcool() {
-        Cocktail cocktail = new Cocktail("Mojito");
+        Cocktail cocktail = new Cocktail("Mojito",true);
         assertEquals("Mojito", cocktail.getNom());
         assertTrue(cocktail.alcoolFree());
     }
 
     @Test
     void testAddIngredient() {
-        Cocktail cocktail = new Cocktail("Mojito");
+        Cocktail cocktail = new Cocktail("Mojito",false);
         cocktail.add("Menthe", 10.0);
         cocktail.add("Citron", 20.0);
 
@@ -25,7 +25,7 @@ class CocktailTest {
 
     @Test
     void testToString() {
-        Cocktail cocktail = new Cocktail("Mojito");
+        Cocktail cocktail = new Cocktail("Mojito",false);
         cocktail.add("Menthe", 10.0);
         cocktail.add("Citron", 20.0);
 
@@ -35,7 +35,7 @@ class CocktailTest {
 
     @Test
     void testGetNom() {
-        Cocktail cocktail = new Cocktail("Mojito");
+        Cocktail cocktail = new Cocktail("Mojito",false);
         assertEquals("Mojito", cocktail.getNom());
     }
 
